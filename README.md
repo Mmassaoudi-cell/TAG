@@ -17,27 +17,7 @@ This repository contains the complete source code and experimental framework for
 
 ---
 
-## Repository Structure
 
-```
-.
-├── run_experiments.py                  # Main script — runs all experiments and saves all figures
-├── Idea7_AttackGraph_Enhancement.ipynb # Interactive notebook with step-by-step explanations
-├── figures/                            # Pre-generated figures (also reproduced by running the code)
-│   ├── fig1_risk_vs_budget.png
-│   ├── fig2_risk_reduction_bar.png
-│   ├── fig3_scalability.png
-│   ├── fig4_sensitivity_p0.png
-│   ├── fig5_sensitivity_beta.png
-│   ├── fig6_ablation.png
-│   ├── fig7_robustness_sources.png
-│   ├── fig8_sensitivity_T.png
-│   ├── fig9_mc_convergence.png
-│   └── fig10_risk_heatmap.png
-├── requirements.txt                    # Python dependencies
-├── .gitignore
-└── README.md
-```
 
 ---
 
@@ -60,8 +40,6 @@ python run_experiments.py
 This single command:
 - Loads all four benchmark networks (MV Feeder, IEEE 39-bus, IEEE 118-bus, RTS-96) from the `pandapower` library
 - Runs all eight strategies (No Defense, Random, Degree, Betweenness, PageRank, Simulated Annealing, Greedy, and TAG)
-- Saves ten figures to `figures/`
-- Prints formatted LaTeX tables for direct copy-paste into the paper
 
 Expected runtime: approximately **15–40 minutes** on a modern laptop (the bottleneck is the Monte Carlo evaluation inside the TAG portfolio search).
 
@@ -123,48 +101,6 @@ The proposed TAG method improves upon vanilla greedy through four enhancements:
 
 ---
 
-## Results Summary
-
-**Final risk R̂(D₅) at K = 5 defended substations:**
-
-| Strategy         |  MV Feeder | IEEE 39-bus | IEEE 118-bus |  RTS-96 |  Mean  |
-|:-----------------|:----------:|:-----------:|:------------:|:-------:|:------:|
-| No Defense       |   0.569    |    0.905    |    0.940     |  0.680  | 0.773  |
-| Random           |   0.519    |    0.820    |    0.921     |  0.650  | 0.728  |
-| Betweenness      |   0.569    |    0.568    |    0.940     |  0.649  | 0.681  |
-| PageRank         |   0.569    |    0.583    |    0.757     |  0.621  | 0.632  |
-| Degree           |   0.266    |    0.566    |    0.757     |  0.366  | 0.489  |
-| SA               |   0.295    |    0.537    |    0.840     |  0.311  | 0.496  |
-| Greedy (Original)|   0.215    |    0.547    |    0.616     |  0.253  | 0.408  |
-| **TAG (Proposed)**| **0.117** | **0.302**   |  **0.430**   |**0.122**|**0.243**|
-
-**Relative risk reduction vs. No Defense baseline:**
-
-| Strategy         |  MV Feeder | IEEE 39-bus | IEEE 118-bus |  RTS-96 |  Mean  |
-|:-----------------|:----------:|:-----------:|:------------:|:-------:|:------:|
-| Betweenness      |    0.0%    |    37.3%    |     0.0%     |   4.6%  | 10.5%  |
-| Degree           |   53.2%    |    37.4%    |    19.4%     |  46.1%  | 39.0%  |
-| Greedy (Original)|   62.2%    |    39.5%    |    34.4%     |  62.9%  | 49.8%  |
-| **TAG (Proposed)**|**79.3%** | **66.6%**   |  **54.3%**   |**82.0%**|**70.5%**|
-
----
-
-## Figures Produced
-
-| Figure | Description |
-|:-------|:------------|
-| `fig1_risk_vs_budget.png` | Risk vs. defense budget K for all strategies on IEEE 118-bus |
-| `fig2_risk_reduction_bar.png` | Grouped bar chart of relative risk reduction across all networks |
-| `fig3_scalability.png` | Computation time per iteration vs. network size |
-| `fig4_sensitivity_p0.png` | Sensitivity of final risk to base compromise probability p₀ |
-| `fig5_sensitivity_beta.png` | Sensitivity of final risk to defense reduction factor β |
-| `fig6_ablation.png` | Ablation study of TAG components on IEEE 118-bus |
-| `fig7_robustness_sources.png` | Robustness to increasing number of attack sources \|S\| |
-| `fig8_sensitivity_T.png` | Sensitivity to attack horizon T |
-| `fig9_mc_convergence.png` | Monte Carlo convergence study (risk estimate vs. N_trials) |
-| `fig10_risk_heatmap.png` | Full risk heatmap across all strategy × network combinations |
-
----
 
 ## Citation
 
@@ -176,7 +112,7 @@ If you use this code in your research, please cite:
              Cyber-Physical Power Systems},
   author  = {Massaoudi, Mohamed and Thejas, G.S. and Ez Eddin, Maymouna
              and Davis, Katherine R.},
-  journal = {Remote Sensing},
+  journal = {Electronics},
   year    = {2026},
   note    = {Submitted}
 }
