@@ -1,0 +1,15 @@
+# Core scientific stack
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+
+# Graph analysis
+networkx>=3.1
+
+# Power system benchmarks (required for IEEE 39/118-bus, MV feeder, RTS-96)
+pandapower>=2.13
+
+# Jupyter notebook
+jupyter>=1.0
+ipykernel>=6.0
