@@ -15,7 +15,6 @@ This repository contains the complete source code and experimental framework for
 - Deploys a **dual-mode defense package** (node hardening + micro-segmentation + monitored-neighbor shielding) at a budget-constrained set of substations
 - Outperforms seven competing baselines on four benchmark power networks, reducing the probability of critical-node compromise by **54.3–82.0%** relative to no defense and by **30.2–51.5%** relative to vanilla greedy
 
----
 
 
 
